@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="../easyUI/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyUI/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../easyUI/css/demo.css">
+	<script src="../js/jquery-1.8.3.js"></script>
+	<!--jquery.easyui.min.js包含了easyUI中的所有插件-->
+	<script src="../js/jquery.easyui.min.js"></script>
+</head>
+<body style="text-align: center;">
+	<table id="show"></table>
+</body>
+	<script type="text/javascript">
+		$(function() {
+			$('#show').datagrid({
+				url:'/k9507_ssm_demo/getUserByPage',
+				pagination:true,
+				fitColumns:true,
+				striped:true,
+				columns:[[ 
+					{field:'id',title:'编号',width:100}, 
+					{field:'name',title:'姓名',width:100}, 
+					{field:'password',title:'密码',width:100},
+					{field:'sex',title:'性别',width:100},
+					{field:'hobby',title:'爱好',width:100},
+					{field:'education',title:'学历',width:100},
+					{field:'address',title:'地址',width:100},
+					{field:'birthday',title:'生日',width:100,
+						formatter: function(value,row,index){
+							return fmtDateFormat(value);
+						}
+					}, 
+					{field:'salary',title:'工资',width:100}
+				]] 
+			}); 
+		})
+		function fmtDateFormat(value) {
+			var d = new Date(value);
+			return d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDay()+"日";
+	}
+	</script>
+</html>
