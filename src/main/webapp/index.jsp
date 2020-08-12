@@ -6,8 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<jsp:forward page="/getUserByPage?page=1&rows=5"></jsp:forward>
 <body>
-
+	<jsp:forward page="/getUserByPage?page=1&rows=5"></jsp:forward>
 </body>
 </html>
